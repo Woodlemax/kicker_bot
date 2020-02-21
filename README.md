@@ -1,1 +1,1 @@
-# kicker_bot
+# KickerBot
