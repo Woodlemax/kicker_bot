@@ -99,7 +99,7 @@ def help(update, context):
 
 def hardmode(update, context):
     """Переключение бота в хард режим"""
-    update.message.reply_text('Ебучий режим включен!')
+    update.message.reply_text('Хард режим включен!')
     update_setting(update.effective_chat.id, 'replay_mode', 'hard')
 
 
@@ -114,13 +114,13 @@ def get_ok_busy_kicker(chat_id):
 
     if get_setting(chat_id, 'replay_mode') == 'hard':
         ok_msg = {
-            1: 'Пиздуй, свободно!',
+            1: 'Вали, свободно!',
             2: 'Го го го, пока не заняли!',
-            3: 'Чисто - хуисто.',
+            3: 'Чисто - уисто.',
             4: 'Никого нет там, вали уже...',
             5: 'Кикер чист, в отличии от тебя.',
-            6: 'Как же вы заебали... Свободно',
-            7: 'Так то чисто, но может блять поработаем чутка?!',
+            6: 'Как же вы задолбали... Свободно',
+            7: 'Так то чисто, но может поработаем чутка?!',
             8: 'Сам иди проверяй, мне надоело'
         }
         m = random.randint(1, len(ok_msg))
@@ -135,13 +135,13 @@ def get_ok_ping_kicker(chat_id):
     if get_setting(chat_id, 'replay_mode') == 'hard':
         ok_msg = {
             1: 'Я тут, все ровно.',
-            2: 'Жив, жив, отъебись уже!',
+            2: 'Жив, жив, отвали уже!',
             3: 'Все еще на месте.',
             4: 'Че надо?!',
             5: 'Себе пингани!',
-            6: 'Как же вы заебали...',
+            6: 'Как же вы задолбали...',
             7: 'Спустись ногами и проверь, жирная скотина!',
-            8: 'Понг - хуенг'
+            8: 'Понг - уенг'
         }
         m = random.randint(1, len(ok_msg))
         return ok_msg.get(m)
@@ -153,17 +153,15 @@ def get_msg_count_kick(chat_id, count):
     """Получение сообщения Количество ударов в кикере"""
     if get_setting(chat_id, 'replay_mode') == 'hard':
         if count % 100 in [11, 12, 13, 14] or count % 10 in [0, 5, 6, 7, 8, 9]:
-            return f'Последние 5 минут кто-то поебывал кикер: {count} ебучих ударов'
+            return f'Последние 5 минут кто-то пошатывал кикер: {count} шакальных ударов'
         if count % 10 == 1:
-            return f'Последние 5 минут кто-то поебывал кикер: {count} ебучий удар'
-        # if count % 10 in [2, 3, 4]:
-        return f'Последние 5 минут кто-то поебывал кикер: {count} ебучих удара'
+            return f'Последние 5 минут кто-то пошатывал кикер: {count} шакальных удар'
+        return f'Последние 5 минут кто-то пошатывал кикер: {count} шакальных удара'
     else:
         if count % 100 in [11, 12, 13, 14] or count % 10 in [0, 5, 6, 7, 8, 9]:
             return f'Последние 5 минут активность кикера: {count} ударов'
         if count % 10 == 1:
             return f'Последние 5 минут активность кикера: {count} удар'
-        # if count % 10 in [2, 3, 4]:
         return f'Последние 5 минут активность кикера: {count} удара'
 
 
@@ -176,9 +174,9 @@ def get_msg_timeout_kicker(chat_id):
             2: 'Воу! Воу! Полегче, амиго!',
             3: 'Себе подергай.',
             4: 'Че надо?!',
-            5: 'Иди нахер',
+            5: 'Иди нафиг',
             6: 'Выдохни уже!',
-            7: 'Врача, скорее! У долбоеба приступ!',
+            7: 'Врача, скорее! Тут приступ!',
             8: 'Эпилептик'
         }
         m = random.randint(1, len(ok_msg))
@@ -277,19 +275,19 @@ def minus(update, context):
     start_chat_play = dict_chat.setdefault('start_time', 0)
     if start_chat_play == 0:
         if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-            update.message.reply_text(f'Че бля минус?! Все равно команды нет')
+            update.message.reply_text(f'Че минус?! Все равно команды нет')
         return
     else:
         if start_chat_play + wait_player < time.time():
             dict_chat.clear()
             if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-                update.message.reply_text(f'Че бля минус?! Все равно команды нет')
+                update.message.reply_text(f'Че минус?! Все равно команды нет')
             return
         else:
             count_chat_play = dict_chat.setdefault('count_play', 0)
             if count_chat_play >= 4:
                 if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-                    update.message.reply_text(f'Проебал момент')
+                    update.message.reply_text(f'Профукал момент')
                 else:
                     update.message.reply_text(f'Опоздал')
                 return
@@ -299,7 +297,7 @@ def minus(update, context):
                 if user_play is None:
                     players.pop(f'{update.effective_user.id}', None)
                     if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-                        update.message.reply_text(f'Похуй, ты все равно не собирался')
+                        update.message.reply_text(f'Пофиг, ты все равно не собирался')
                     return
                 else:
                     players.pop(f'{update.effective_user.id}', None)
@@ -320,12 +318,6 @@ def minus(update, context):
                     update.message.reply_text(string, quote=False)
 
 
-    # if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-    #     update.message.reply_text(f'Пидора ответ')
-    # else:
-    #     return
-
-
 def plus(update, context):
 
     # Установка начала отсчета сбора команды
@@ -341,7 +333,7 @@ def plus(update, context):
         count_chat_play = dict_chat.setdefault('count_play', 0)
         if count_chat_play >= 4:
             if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-                update.message.reply_text(f'Проебал момент')
+                update.message.reply_text(f'Профукал момент')
             else:
                 update.message.reply_text(f'Опоздал')
             return
@@ -369,12 +361,6 @@ def plus(update, context):
                 if i < 4:
                     string = f'{string}\nЕще нужно {4-i}'
                 update.message.reply_text(string, quote=False)
-
-
-    # if get_setting(update.effective_chat.id, 'replay_mode') == 'hard':
-    #     update.message.reply_text(f'Пидора ответ')
-    # else:
-    #     return
 
 
 def go(update, context):
