@@ -9,14 +9,14 @@ http://grafana:8081/d/osEOCNsZk/kicker?orgId=1&refresh=5s
 ## Начинка
 * Корпус
 Печать на 3D принтере (PLA)
-![Модель корпуса](/other_files/case.png)
+![Модель корпуса](/other_files/case.png | width=100)
 Файлы:
 [Base_1](/other_files/Base_1.stl)
 [Base_2](/other_files/Base_2.stl)
 [Inner](/other_files/Inner.stl)
 
 * Начинка
-![Датчик](/other_files/real_body.png)
+![Датчик](/other_files/real_body.png | width=100)
 18650 - 3400mAh
 Плата зарядки
 LoLin V3 NodeMcu
