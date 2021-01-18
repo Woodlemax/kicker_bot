@@ -11,9 +11,12 @@ http://grafana:8081/d/osEOCNsZk/kicker?orgId=1&refresh=5s
 Печать на 3D принтере (PLA)
 <img src=/other_files/case.png width="400" />
 Файлы:
-[Base_1](/other_files/Base_1.stl)
-[Base_2](/other_files/Base_2.stl)
-[Inner](/other_files/Inner.stl)
+
+[Base_1](other_files/Base_1.stl)
+
+[Base_2](other_files/Base_2.stl)
+
+[Inner](other_files/Inner.stl)
 
 * Начинка
 <img src=/other_files/real_body.png width="400" />
